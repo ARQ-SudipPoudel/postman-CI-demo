@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node Project to store Postman Collection",
   "scripts": {
-    "api-tests": "newman run Hello_World.postman_collection.json"
+    "api-tests": "newman run ~/Documents/postman-CI-Demo/Hello_World.postman_collection.json"
   },
 
   "keywords": [
