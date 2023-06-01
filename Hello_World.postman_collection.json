@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "4324c343-f7ed-49c6-a620-7909df5ce08e",
+		"name": "Hello World",
+		"description": "A simple collection with one request that has test to validate response. You can use this collection as a entry-levle example to demonstrate Postman's debugging capabilities.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25757910",
+		"_collection_link": "https://crimson-rocket-497915.postman.co/workspace/My-Workspace~b59fcd4f-2317-4722-8ee6-7ac95f4b7175/collection/25757910-4324c343-f7ed-49c6-a620-7909df5ce08e?action=share&creator=25757910&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Hello Postman people",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Ensure `data` property exists and contains `message`\", function () {",
+							"    pm.response.to.have.jsonSchema({",
+							"        properties: {",
+							"            data: {",
+							"                type: \"object\",",
+							"                properties: {",
+							"                    message: {",
+							"                        type: \"string\"",
+							"                    }",
+							"                }",
+							"            }",
+							"        }",
+							"    });",
+							"});",
+							"",
+							"pm.test(\"Ensure valid message\", function () {",
+							"    pm.expect(jsonData.data.message).to.eql('Hello, Postman people!');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Hello, Postman people!\"\n}"
+				},
+				"url": "https://postman-echo.com/post"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
